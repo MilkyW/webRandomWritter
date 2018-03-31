@@ -27,16 +27,12 @@ public class handler {
             @RequestParam(name = "n", required = false) Integer n,
             @RequestParam(name = "len", required = false) Integer len) {
         RandomWritter rm = new RandomWritter();
-//        String in = filename + '\n' + String.valueOf(n) + '\n'
-//                + String.valueOf(len) + '\n';
-        String out = "";
-//        ByteArrayInputStream is = new ByteArrayInputStream(in.getBytes());
-//        System.setIn(is);
-//        ByteArrayOutputStream os = new ByteArrayOutputStream();
-//        PrintStream ps = new PrintStream(os);
-//        System.setOut(ps);
-//        rm.main();
-//        out = os.toString();
-        return out;
+        String in = filename + '\n' + String.valueOf(n) + '\n'
+                + String.valueOf(len) + '\n';
+        ByteArrayInputStream is = new ByteArrayInputStream(in.getBytes());
+        System.setIn(is);
+        rm.out = "";
+        rm.main();
+        return rm.out+'\n';
     }
 }
